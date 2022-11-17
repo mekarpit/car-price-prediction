@@ -66,3 +66,7 @@ def pred_endpoint(postdata:PredictionItem):
     inp_val = list(postdata.dict().values())
     print(inp_val)
     return predict_price(*inp_val)
+
+
+@app.get('')
+    return predict_price(*inp_val)
