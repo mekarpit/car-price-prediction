@@ -67,6 +67,6 @@ def pred_endpoint(postdata:PredictionItem):
     print(inp_val)
     return predict_price(*inp_val)
 
-
-@app.get('')
-    return predict_price(*inp_val)
+@app.get("/")
+async def root():
+    return {"message": "Welcome to KAS Car Price Prediction"}
