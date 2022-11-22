@@ -26,7 +26,6 @@ class PredictionItem(BaseModel):
     c_fuel_type: str
     c_transmission_type: str
 
-
 def predict_price(age, km_driven, mileage, engine, max_power, seats, c_brand, c_full_name, c_seller_type, c_fuel_type, c_transmission_type):    
     
     z = np.zeros(len(col_data))
@@ -60,12 +59,11 @@ def predict_price(age, km_driven, mileage, engine, max_power, seats, c_brand, c_
    
     return model_rf.predict([z])[0]
 
-
 @app.post('/test')
 def pred_endpoint(postdata:PredictionItem):
     inp_val = list(postdata.dict().values())
     print(inp_val)
-    return predict_price(*inp_val)
+    return ("Predeicted Price in Lakh",predict_price(*inp_val))
 
 @app.get("/")
 async def root():
